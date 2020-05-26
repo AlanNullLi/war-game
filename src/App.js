@@ -93,17 +93,10 @@ class App extends React.Component {
     })
   }
   //this will update the state with the top card of each player
+  //not sure why it is not updating my top card
+  //its setting my card hands as undefined i think
+  //i got stuck here and didn't know how to continue
   play() {
-    let newBot = this.state.bot
-    let newp1 = this.state.p1
-    let newBotCard = newBot.shift()
-    let newp1Card = newp1.shift()
-    this.setState({
-      bot: newBot,
-      p1: newp1,
-      botCard: newBotCard,
-      p1Card: newp1Card,
-    })
     if (this.state.botCard !== null && this.state.p1Card !== null) {
       if (this.state.botCard > this.state.p1Card) {
         let newHand = this.state.bot
@@ -121,6 +114,17 @@ class App extends React.Component {
         })
       }
     }
+    let newBot = this.state.bot
+    let newp1 = this.state.p1
+    let newBotCard = newBot.shift()
+    let newp1Card = newp1.shift()
+    this.setState({
+      bot: newBot,
+      p1: newp1,
+      botCard: newBotCard,
+      p1Card: newp1Card,
+    })
+    //returning undefined after first run
     console.log(this.state.botCard)
     console.log(this.state.p1Card)
   }
